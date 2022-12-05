@@ -1,0 +1,3 @@
+curl -k https://github.com/budikd/zimbra/blob/main/setup-zimbra-ubuntu20.04.sh > /tmp/setup-zimbra-ubuntu18.sh
+chmod +x /tmp/setup-zimbra-ubuntu18.sh
+/tmp/setup-zimbra-ubuntu18.sh
