@@ -2,7 +2,8 @@
 clear
 
 echo -e "##########################################################################"
-echo -e "#               Ahmad Imanudin - https://www.imanudin.net                #"
+echo -e "                modify by Budi Kurniawan                                  "
+echo -e "#        Source Ahmad Imanudin - https://www.imanudin.net                #"
 echo -e "# If there any question about this script, feel free to contact me below #"
 echo -e "#                    Contact at ahmad@imanudin.com                       #"
 echo -e "##########################################################################"
@@ -34,7 +35,7 @@ echo -e "[INFO] : Install dependencies"
 sleep 3
 apt-get update -y
 apt-get upgrade -y
-apt-get install -y bind9 bind9utils netcat-openbsd sudo libidn11 libpcre3 libgmp10 libexpat1 libstdc++6 libperl5.26 libaio1 resolvconf unzip pax sysstat sqlite3 net-tools
+apt install -y bind9 bind9utils netcat-openbsd sudo libidn11 libpcre3 libgmp10 libexpat1 libstdc++6 libaio1 resolvconf unzip pax sysstat sqlite3 net-tools
 echo ""
 
 # Disable services sendmail and postfix
@@ -109,6 +110,7 @@ sed -i 's/dnssec-validation yes/dnssec-validation no/g' /etc/bind/named.conf.opt
 
 # Restart Service & Check results configuring DNS Server
 
+systemctl is-active bind9
 systemctl enable bind9
 systemctl restart bind9
 nslookup $HOSTNAME.$DOMAIN
